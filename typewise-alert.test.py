@@ -1,5 +1,5 @@
 import unittest
-import typewise_alert
+from typewise_alert import typewise_alert
 
 class TypewiseTest(unittest.TestCase):
     def test_infers_breach_as_per_limits(self):
@@ -48,7 +48,6 @@ class TypewiseTest(unittest.TestCase):
         # Test with MedActiveCooling and EmailAlert
         result = typewise_alert.check_and_alert(typewise_alert.EmailAlert(), typewise_alert.MedActiveCooling(), 45)
         self.assertEqual(result, 'To: a.b@c.com\nHi, the temperature is too high')
-
 
 if __name__ == '__main__':
     unittest.main()
