@@ -1,16 +1,16 @@
 from abc import ABC, abstractmethod
-
-# Breach classification strategies
-class CoolingType(ABC):
-    @abstractmethod
-    def classify_breach(self, temperature_in_c):
-        pass
-    def infer_breach(value, lowerLimit, upperLimit):
+def infer_breach(value, lowerLimit, upperLimit):
         if value < lowerLimit:
             return 'TOO_LOW'
         if value > upperLimit:
             return 'TOO_HIGH'
         return 'NORMAL'
+# Breach classification strategies
+class CoolingType(ABC):
+    @abstractmethod
+    def classify_breach(self, temperature_in_c):
+        pass
+    
 
 class PassiveCooling(CoolingType):
     def classify_breach(self, temperature_in_c):
